@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
         itemCount: chats.length,
         itemBuilder: (BuildContext context, int index) {
           final Message chat = chats[index];
-          return GestureDetector(
+          return InkWell(
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
@@ -86,7 +86,7 @@ class _HomeState extends State<Home> {
                             ],
                           ),
                     child: CircleAvatar(
-                      radius: 25,
+                      radius: 30,
                       backgroundImage: AssetImage(chat.sender.imageUrl),
                     ),
                   ),
@@ -122,6 +122,17 @@ class _HomeState extends State<Home> {
                                     : Container(
                                         child: null,
                                       ),
+                                Padding(
+                                  padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                  child: Text(
+                                    "Delhi",
+                                    style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.black54,
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
                             Text(

@@ -1,17 +1,52 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:profilebabavendor/helper/HelperFunction.dart';
 import 'package:profilebabavendor/ui/Splashscreen.dart';
 
-void main() {
+Future<void> main() async {
+  init();
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    // navigation bar color
-    statusBarColor: Colors.transparent, // status bar color
+    statusBarColor: Colors.transparent,
   ));
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key key}) : super(key: key);
+Future init() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+}
+
+class MyApp extends StatefulWidget {
+  // Create the initialization Future outside of `build`:
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool userisloggedin = false;
+  @override
+  void initState() {
+    // TODO: implement initState
+
+    getloginState();
+    super.initState();
+  }
+
+  getloginState() async {
+    await HelperFunction.GetuserLoggedInSharedPreference().then((value) {
+      setState(() {
+        {
+          if (value != null) {
+            userisloggedin = value;
+          } else {
+            userisloggedin = false;
+          }
+        }
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

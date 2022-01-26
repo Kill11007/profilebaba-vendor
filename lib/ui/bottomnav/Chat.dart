@@ -29,7 +29,7 @@ class _ChatState extends State<Chat> {
                         Text(
                           "Plan",
                           style: TextStyle(
-                              color: Colors.black87,
+                              color: MyColors.orange,
                               fontSize: 16,
                               fontWeight: FontWeight.w800),
                         ),
@@ -87,7 +87,7 @@ class _ChatState extends State<Chat> {
             child: Text(
               "Transaction History",
               style: TextStyle(
-                  color: MyColors.black,
+                  color: MyColors.blue,
                   fontSize: 18,
                   fontWeight: FontWeight.w800),
             ),
@@ -106,7 +106,7 @@ class _ChatState extends State<Chat> {
                         Text(
                           "Plan",
                           style: TextStyle(
-                              color: Colors.black87,
+                              color: MyColors.orange,
                               fontSize: 16,
                               fontWeight: FontWeight.w800),
                         ),
@@ -186,7 +186,7 @@ class _ChatState extends State<Chat> {
                         Text(
                           "Plan",
                           style: TextStyle(
-                              color: Colors.black87,
+                              color: MyColors.orange,
                               fontSize: 16,
                               fontWeight: FontWeight.w800),
                         ),

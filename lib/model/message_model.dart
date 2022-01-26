@@ -21,13 +21,13 @@ List<Message> chats = [
     sender: ironMan,
     time: '5:30 PM',
     text: 'Hey dude! Even dead I\'m the hero. Love you 3000 guys.',
-    unread: true,
+    unread: false,
   ),
   Message(
     sender: captainAmerica,
     time: '4:30 PM',
     text: 'Hey, how\'s it going? What did you do today?',
-    unread: true,
+    unread: false,
   ),
   Message(
     sender: blackWindow,
@@ -39,7 +39,7 @@ List<Message> chats = [
     sender: spiderMan,
     time: '2:30 PM',
     text: 'I\'m exposed now. Please help me to hide my identity.',
-    unread: true,
+    unread: false,
   ),
   Message(
     sender: hulk,

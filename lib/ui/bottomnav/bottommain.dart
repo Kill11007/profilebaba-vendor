@@ -7,6 +7,8 @@ import 'package:profilebabavendor/ui/bottomnav/Home.dart';
 import 'package:profilebabavendor/ui/bottomnav/Myaccount.dart';
 import 'package:profilebabavendor/ui/bottomnav/Shop.dart';
 import 'package:profilebabavendor/widget/drawer_link_widget.dart';
+import 'package:profilebabavendor/widget/mycolor.dart';
+import 'package:profilebabavendor/widget/notification.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:snapping_sheet/snapping_sheet.dart';
 
@@ -42,6 +44,9 @@ class BottomDasState extends State<BottomDas> {
 
   @override
   void initState() {
+    final firebaseMessaging = FCM();
+    firebaseMessaging.getToken();
+
     super.initState();
     //checkFirstSeen();
     one = Home(
@@ -206,23 +211,33 @@ class BottomDasState extends State<BottomDas> {
               ),
               SizedBox(height: 20),
               DrawerLinkWidget(
-                icon: Icons.assignment_outlined,
-                text: "Bookings",
+                icon: Icons.home,
+                text: "Home",
                 onTap: (e) {},
               ),
               DrawerLinkWidget(
-                icon: Icons.folder_special_outlined,
-                text: "My Services",
+                icon: Icons.flag,
+                text: "Lead",
                 onTap: (e) {},
               ),
               DrawerLinkWidget(
-                icon: Icons.notifications_none_outlined,
-                text: "Notifications",
+                icon: Icons.disc_full_outlined,
+                text: "Offer",
+                onTap: (e) {},
+              ),
+              DrawerLinkWidget(
+                icon: Icons.seventeen_mp_rounded,
+                text: "Find Service",
                 onTap: (e) {},
               ),
               DrawerLinkWidget(
                 icon: Icons.chat_outlined,
-                text: "Messages",
+                text: "History",
+                onTap: (e) {},
+              ),
+              DrawerLinkWidget(
+                icon: Icons.share,
+                text: "Refer",
                 onTap: (e) {},
               ),
               ListTile(
@@ -242,18 +257,13 @@ class BottomDasState extends State<BottomDas> {
                 onTap: (e) {},
               ),
               DrawerLinkWidget(
+                icon: Icons.chat_outlined,
+                text: "Customer Chat",
+                onTap: (e) {},
+              ),
+              DrawerLinkWidget(
                 icon: Icons.settings_outlined,
-                text: "Settings",
-                onTap: (e) {},
-              ),
-              DrawerLinkWidget(
-                icon: Icons.translate_outlined,
-                text: "Languages",
-                onTap: (e) {},
-              ),
-              DrawerLinkWidget(
-                icon: Icons.brightness_6_outlined,
-                text: Get.isDarkMode ? "Light Theme" : "Dark Theme",
+                text: "Contact Us",
                 onTap: (e) {},
               ),
               ListTile(
@@ -318,40 +328,70 @@ class BottomDasState extends State<BottomDas> {
           },
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Image.asset("assets/icon/chat.png"),
-              activeIcon: Image.asset("assets/icon/chat.png"),
+              icon: Image.asset(
+                "assets/icon/chat.png",
+                color: MyColors.grayicon,
+              ),
+              activeIcon: Image.asset(
+                "assets/icon/chat.png",
+                color: MyColors.blue,
+              ),
               title: Text(
                 'Chat',
                 style: TextStyle(fontSize: 10),
               ),
             ),
             BottomNavigationBarItem(
-              icon: Image.asset("assets/icon/lead.png"),
-              activeIcon: Image.asset("assets/icon/lead.png"),
+              icon: Image.asset(
+                "assets/icon/lead.png",
+                color: MyColors.grayicon,
+              ),
+              activeIcon: Image.asset(
+                "assets/icon/lead.png",
+                color: MyColors.blue,
+              ),
               title: Text(
                 "Lead",
                 style: TextStyle(fontSize: 10),
               ),
             ),
             BottomNavigationBarItem(
-              icon: Image.asset("assets/icon/offer.png"),
-              activeIcon: Image.asset("assets/icon/offer.png"),
+              icon: Image.asset(
+                "assets/icon/offer.png",
+                color: MyColors.grayicon,
+              ),
+              activeIcon: Image.asset(
+                "assets/icon/offer.png",
+                color: MyColors.blue,
+              ),
               title: Text(
                 "Offer",
                 style: TextStyle(fontSize: 10),
               ),
             ),
             BottomNavigationBarItem(
-              icon: Image.asset("assets/icon/accountant.png"),
-              activeIcon: Image.asset("assets/icon/accountant.png"),
+              icon: Image.asset(
+                "assets/icon/accountant.png",
+                color: MyColors.grayicon,
+              ),
+              activeIcon: Image.asset(
+                "assets/icon/accountant.png",
+                color: MyColors.blue,
+              ),
               title: Text(
                 "Account",
                 style: TextStyle(fontSize: 10),
               ),
             ),
             BottomNavigationBarItem(
-              icon: Image.asset("assets/icon/search.png"),
-              activeIcon: Image.asset("assets/icon/search.png"),
+              icon: Image.asset(
+                "assets/icon/search.png",
+                color: MyColors.grayicon,
+              ),
+              activeIcon: Image.asset(
+                "assets/icon/search.png",
+                color: MyColors.blue,
+              ),
               title: Text(
                 'Search',
                 style: TextStyle(fontSize: 10),
