@@ -1,10 +1,8 @@
 import 'dart:async';
 
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:profilebabavendor/helper/HelperFunction.dart';
 import 'package:profilebabavendor/ui/Screens/Login.dart';
-import 'package:profilebabavendor/ui/intro_page.dart';
+import 'package:profilebabavendor/ui/bottomnav/bottommain.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -17,48 +15,32 @@ class SplashScreenState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 2), () => {getloginState()});
+    Timer(Duration(seconds: 2), () => {checkFirstSeen()});
   }
 
-  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      // Initialize FlutterFire:
-      future: _initialization,
-      builder: (context, snapshot) {
-        // Check for errors
-        if (snapshot.hasError) {
-          print("error");
-        }
-
-        // Once complete, show your application
-        if (snapshot.connectionState == ConnectionState.done) {
-          return Container(
-              color: Colors.white,
-              child: Padding(
-                  padding: EdgeInsets.all(20),
-                  child: Image.asset('assets/images/logo.png')));
-        }
-
-        // Otherwise, show something whilst waiting for initialization to complete
-        return Container();
-      },
-    );
+    return Container(
+        color: Colors.white,
+        child: Padding(
+            padding: EdgeInsets.all(20),
+            child: Image.asset('assets/images/logo.png')));
   }
 
-  getloginState() async {
-    await HelperFunction.GetuserLoggedInSharedPreference().then((value) {
-      setState(() {
-        {
-          if (value != null) {
-            userisloggedin = value;
-          } else {
-            userisloggedin = false;
-          }
-        }
-      });
-    });
+  Future checkFirstSeen() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    print(prefs.getBool("is_login"));
+    print("valur");
+    setState(() {});
+
+    if (prefs.getBool("is_login") == true) {
+      Navigator.of(context).pushReplacement(
+          new MaterialPageRoute(builder: (context) => new BottomDas()));
+    } else {
+      Navigator.of(context).pushReplacement(
+          new MaterialPageRoute(builder: (context) => new LoginPage()));
+    }
   }
 }
 

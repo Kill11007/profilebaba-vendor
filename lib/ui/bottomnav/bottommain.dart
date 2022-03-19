@@ -328,19 +328,15 @@ class BottomDasState extends State<BottomDas> {
           },
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Image.asset(
-                "assets/icon/chat.png",
-                color: MyColors.grayicon,
-              ),
-              activeIcon: Image.asset(
-                "assets/icon/chat.png",
-                color: MyColors.blue,
-              ),
-              title: Text(
-                'Chat',
-                style: TextStyle(fontSize: 10),
-              ),
-            ),
+                icon: Image.asset(
+                  "assets/icon/chat.png",
+                  color: MyColors.grayicon,
+                ),
+                activeIcon: Image.asset(
+                  "assets/icon/chat.png",
+                  color: MyColors.blue,
+                ),
+                label: 'Chat'),
             BottomNavigationBarItem(
               icon: Image.asset(
                 "assets/icon/lead.png",
@@ -350,10 +346,7 @@ class BottomDasState extends State<BottomDas> {
                 "assets/icon/lead.png",
                 color: MyColors.blue,
               ),
-              title: Text(
-                "Lead",
-                style: TextStyle(fontSize: 10),
-              ),
+              label: "Lead",
             ),
             BottomNavigationBarItem(
               icon: Image.asset(
@@ -364,10 +357,7 @@ class BottomDasState extends State<BottomDas> {
                 "assets/icon/offer.png",
                 color: MyColors.blue,
               ),
-              title: Text(
-                "Offer",
-                style: TextStyle(fontSize: 10),
-              ),
+              label: "Offer",
             ),
             BottomNavigationBarItem(
               icon: Image.asset(
@@ -378,10 +368,7 @@ class BottomDasState extends State<BottomDas> {
                 "assets/icon/accountant.png",
                 color: MyColors.blue,
               ),
-              title: Text(
-                "Account",
-                style: TextStyle(fontSize: 10),
-              ),
+              label: "Account",
             ),
             BottomNavigationBarItem(
               icon: Image.asset(
@@ -392,10 +379,7 @@ class BottomDasState extends State<BottomDas> {
                 "assets/icon/search.png",
                 color: MyColors.blue,
               ),
-              title: Text(
-                'Search',
-                style: TextStyle(fontSize: 10),
-              ),
+              label: 'Search',
             ),
           ],
         ));
